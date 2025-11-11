@@ -162,8 +162,8 @@ spec:
         vault.hashicorp.com/agent-inject-status: "update"
 
         # Inject DB secret from Vault
-        vault.hashicorp.com/agent-inject-secret-dbcreds: "secret/data/dbcreds"
-        vault.hashicorp.com/agent-inject-template-dbcreds: |
+        vault.hashicorp.com/agent-inject-secret-db-creds: "secret/data/dbcreds"
+        vault.hashicorp.com/agent-inject-template-db-creds: |
           {{- with secret "secret/data/dbcreds" -}}
           username={{ .Data.data.username }}
           password={{ .Data.data.password }}
