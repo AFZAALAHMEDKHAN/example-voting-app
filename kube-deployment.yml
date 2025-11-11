@@ -161,7 +161,7 @@ spec:
     spec:
       containers:
       - name: result
-        image: dockersamples/examplevotingapp_result:before
+        image: scalerdockerimages/project:v1
         ports:
         - containerPort: 80
           name: result
