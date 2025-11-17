@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: result
+  labels:
+    app: result
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: result
+  template:
+    metadata:
+      annotations:
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/agent-inject-status: "update"
+        vault.hashicorp.com/agent-inject-secret-db-creds: "secret/data/dbcreds"
+        vault.hashicorp.com/agent-inject-template-db-creds: |
+          {{- with secret "secret/data/dbcreds" -}}
+          username={{ .Data.data.username }}
+          password={{ .Data.data.password }}
+          {{- end }}
+        vault.hashicorp.com/role: "vault-role"
+      labels:
+        app: result
+    spec:
+      serviceAccountName: vault-serviceaccount
+      containers:
+      - name: result
+        image: scalerdockerimages/project:v1
+        ports:
+        - containerPort: 80
+          name: result

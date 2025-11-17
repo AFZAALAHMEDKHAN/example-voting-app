@@ -1,0 +1,6 @@
+resources:
+  - ../../base
+
+patchesStrategicMerge:
+  - patch-replicas-prod.yaml
+  - patch-result-vault.yaml

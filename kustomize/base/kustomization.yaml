@@ -1,0 +1,17 @@
+namespace: vault
+
+resources:
+  - namespace.yaml
+  - serviceaccount-vault.yaml
+  - redis-deployment.yaml
+  - redis-service.yaml
+  - postgres-deployment.yaml
+  - postgres-pvc.yaml
+  - postgres-pv.yaml
+  - postgres-service.yaml
+  - vote-deployment.yaml
+  - vote-service.yaml
+  - result-deployment.yaml
+  - result-service.yaml
+  - worker-deployment.yaml
+  - worker-service.yaml
