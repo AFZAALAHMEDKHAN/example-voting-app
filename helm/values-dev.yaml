@@ -1,0 +1,6 @@
+replicas:
+  vote: 1
+  result: 1
+  redis: 1
+  db: 1
+  worker: 1

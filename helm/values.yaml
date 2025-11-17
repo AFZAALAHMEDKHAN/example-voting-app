@@ -1,0 +1,25 @@
+# Global images
+images:
+  redis: "redis:alpine"
+  postgres: "postgres:9.4"
+  vote: "dockersamples/examplevotingapp_vote:before"
+  result: "scalerdockerimages/project:v1"
+  worker: "dockersamples/examplevotingapp_worker"
+
+replicas:
+  vote: 2
+  result: 1
+  redis: 1
+  db: 1
+  worker: 1
+
+db:
+  user: "postgres"
+  password: "postgres"
+  storage: "1Gi"
+  mountPath: "/var/lib/postgresql/data"
+  pvHostPath: "/mnt/data/postgres-data"
+
+serviceAccount:
+  name: "vault-serviceaccount"
+  vaultRole: "vault-role"
